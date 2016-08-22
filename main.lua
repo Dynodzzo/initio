@@ -1,3 +1,6 @@
+-- For debug purposes only
+Inspect = require('core.lib.inspect');
+
 local GameManager = require('core.game.GameManager');
 local MenuState = require('app.states.MenuState');
 

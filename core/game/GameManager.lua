@@ -33,7 +33,7 @@ end
 function GameManager:register(name, state)
 	if (not self.registeredStates[name]) then
 		if (not state:extends(GameState)) then
-			error('StateManager can only handle State instances');
+			error('StateManager can only handle GameState instances');
 		end
 		
 		print('Registering a new state : ' .. name);
@@ -52,7 +52,7 @@ function GameManager:push(name)
 	self:exists(name);
 	
 	local previous = self.livingStates[#self.livingStates];
-	insert(self.livingStates, self.registeredStates[name]);
+	insert(self.livingStates, self.registeredStates[name]());
 	self.livingStates[#self.livingStates]:enter(previous);
 end
 
